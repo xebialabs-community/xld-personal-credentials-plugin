@@ -6,12 +6,12 @@ The personal credentials plugin allows you to specify overthere.Host credentials
 
 The following features are available : 
 
--specify a username/password couple (CredentialsType.CT_USERNAME)
--specify a username/password for Windows hosts and a username/password for Unix hosts (CredentialsType.CT_USERNAME and windows/unix properties)
--specify a private key file path and a passphrase (CredentialsType.CT_PRIVATEKEY)
--specify a private key selector (an alias) and a passphrase (CredentialsType.CT_PRIVATEKEY_SELECTOR) 
--specify a custom python script to set the credentials on hosts in a custom way (CredentialsType.CT_CUSTOM_SCRIPT)
--optionally insert a check connection step for each hosts involved in the deployment plan
+- specify a username/password couple (CredentialsType.CT_USERNAME)
+- specify a username/password for Windows hosts and a username/password for Unix hosts (CredentialsType.CT_USERNAME and windows/unix properties)
+- specify a private key file path and a passphrase (CredentialsType.CT_PRIVATEKEY)
+- specify a private key selector (an alias) and a passphrase (CredentialsType.CT_PRIVATEKEY_SELECTOR) 
+- specify a custom python script to set the credentials on hosts in a custom way (CredentialsType.CT_CUSTOM_SCRIPT)
+- optionally insert a check connection step for each hosts involved in the deployment plan
 
 # Requirements #
 
@@ -56,7 +56,8 @@ If the host operating system is *Unix*, _unixUsername_ and _unixPassword_ will b
 
 To enable per OS credentials, modify your synthetic.xml file in the following way:
 
-``` <type-modification type="udm.DeployedApplication">
+```
+<type-modification type="udm.DeployedApplication">
         <property name="unixUsername" kind="string" transient="true" required="false" category="Personal Credentials"/>
         <property name="unixPassword" password="true" transient="true" required="false" category="Personal Credentials"/>
         <property name="windowsUsername" kind="string" transient="true" required="false" category="Personal Credentials"/>
@@ -73,28 +74,29 @@ To enable per OS credentials, modify your synthetic.xml file in the following wa
 In this configuration the plugin will set the privatekeyfile and the passphrase property of the concerned overthere.Host(s).
 To enable this configuration use the following definition :
 
-'''
-	<type-modification type="udm.DeployedApplication">
+
+```	
+<type-modification type="udm.DeployedApplication">
 		<property name="privateKey" kind="string" transient="true" required="false" category="Personal Credentials"/>
         <property name="passphrase" kind="string" transient="true" password="true" required="false" category="Personal Credentials"/>
         <property name="checkConnection" kind="boolean" default="true" required="false" category="Personal Credentials" />
         <property name="credentialsType" kind="enum" default="CT_PRIVATEKEY" enum-class="ext.deployit.community.plugin.personalcredentials.ci.CredentialsType" required="false" category="Personal Credentials" hidden="true"/>
     </type-modification>
-'''
+```
 
 
 ## Private key credentials with file lookup - CT_PRIVATEKEY_SELECTOR ##
 
 In private key selector mode, the privatekey property will be used as a key to perform a lookup against a configuration CI
 
-'''
+```
 	<type-modification type="udm.DeployedApplication">
 		<property name="privateKey" kind="string" transient="true" required="false" category="Personal Credentials"/>
         <property name="passphrase" kind="string" transient="true" password="true" required="false" category="Personal Credentials"/>
         <property name="checkConnection" kind="boolean" default="true" required="false" category="Personal Credentials" />
         <property name="credentialsType" kind="enum" default="CT_PRIVATEKEY" enum-class="ext.deployit.community.plugin.personalcredentials.ci.CredentialsType" required="false" category="Personal Credentials" hidden="true"/>
     </type-modification>
-'''
+```
 
 
 
@@ -102,14 +104,14 @@ In private key selector mode, the privatekey property will be used as a key to p
 
 The custom script mode is intended for use cases where you want to perform a lookup of credentials in a specific way (3rd party password storage, internal repository of credentials, etc...). 
 The custom script does not allow you to return custom steps, it is simply a hook where you can access the involved hosts and perform the ad'hoc credential configuration with a custom logic.
-'''
+```
 	<type-modification type="udm.DeployedApplication">
         <property name="scriptPath" kind="string" hidden="true" required="true" category="Personal Credentials" default="xlc/personalcredentials/setcredentials.py"/>
         <property name="scriptClasspath" kind="string" hidden="true" category="Personal Credentials" default=""/>        
         <property name="checkConnection" kind="boolean" default="true" required="false" category="Personal Credentials" />
         <property name="credentialsType" kind="enum" default="CT_CUSTOM_SCRIPT" enum-class="ext.deployit.community.plugin.personalcredentials.ci.CredentialsType" required="false" category="Personal Credentials" hidden="true"/>
     </type-modification>
-'''
+```
 
 
 Example Python script
