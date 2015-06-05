@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
+    FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
+
+-->
+<synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.xebialabs.com/deployit/synthetic"
+           xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
+
+
+	<!-- Single credential - CT_USERNAME -->
+	<!--  
+	<type-modification type="udm.DeployedApplication">
+        <property name="username" kind="string" transient="true" required="false" category="Personal Credentials"/>
+        <property name="password" password="true" transient="true" required="false" category="Personal Credentials"/>
+        <property name="checkConnection" kind="boolean" default="true" required="false" category="Personal Credentials" />
+        <property name="credentialsType" kind="enum" default="CT_USERNAME" enum-class="ext.deployit.community.plugin.personalcredentials.ci.CredentialsType" required="false" category="Personal Credentials" hidden="true"/>
+    </type-modification> 
+    -->
+    
+    <!-- Per OS credentials - CT_USERNAME -->
+    <!--  
+	<type-modification type="udm.DeployedApplication">
+        <property name="unixUsername" kind="string" transient="true" required="false" category="Personal Credentials"/>
+        <property name="unixPassword" password="true" transient="true" required="false" category="Personal Credentials"/>
+        <property name="windowsUsername" kind="string" transient="true" required="false" category="Personal Credentials"/>
+        <property name="windowsPassword" password="true" transient="true" required="false" category="Personal Credentials"/>
+        <property name="checkConnection" kind="boolean" default="true" required="false" category="Personal Credentials" />
+        <property name="credentialsType" kind="enum" default="CT_USERNAME" enum-class="ext.deployit.community.plugin.personalcredentials.ci.CredentialsType" required="false" category="Personal Credentials" hidden="true"/>
+    </type-modification>
+	-->
+	
+	<!-- Private key credentials - CT_PRIVATEKEY -->
+	<!-- 
+	<type-modification type="udm.DeployedApplication">
+		<property name="privateKey" kind="string" transient="true" required="false" category="Personal Credentials"/>
+        <property name="passphrase" kind="string" transient="true" password="true" required="false" category="Personal Credentials"/>
+        <property name="checkConnection" kind="boolean" default="true" required="false" category="Personal Credentials" />
+        <property name="credentialsType" kind="enum" default="CT_PRIVATEKEY" enum-class="ext.deployit.community.plugin.personalcredentials.ci.CredentialsType" required="false" category="Personal Credentials" hidden="true"/>
+    </type-modification>
+	 -->
+	
+	
+	<!-- Private key credentials - CT_PRIVATEKEY_SELECTOR -->
+	<!--    
+	<type-modification type="udm.DeployedApplication">
+		<property name="privateKey" kind="string" transient="true" required="false" category="Personal Credentials"/>
+        <property name="passphrase" kind="string" transient="true" password="true" required="false" category="Personal Credentials"/>
+        <property name="checkConnection" kind="boolean" default="true" required="false" category="Personal Credentials" />
+        <property name="credentialsType" kind="enum" default="CT_PRIVATEKEY_SELECTOR" enum-class="ext.deployit.community.plugin.personalcredentials.ci.CredentialsType" required="false" category="Personal Credentials" hidden="true"/>
+    </type-modification>
+    -->
+    
+    <!-- Private key credentials - CT_CUSTOM_SCRIPT -->
+    <!--   
+    <type-modification type="udm.DeployedApplication">
+        <property name="scriptPath" kind="string" hidden="true" required="true" category="Personal Credentials" default="xlc/personalcredentials/setcredentials.py"/>
+        <property name="scriptClasspath" kind="string" hidden="true" category="Personal Credentials" default="" required="false"/>        
+        <property name="checkConnection" kind="boolean" default="true" required="false" category="Personal Credentials" />
+        <property name="credentialsType" kind="enum" default="CT_CUSTOM_SCRIPT" enum-class="ext.deployit.community.plugin.personalcredentials.ci.CredentialsType" required="false" category="Personal Credentials" hidden="true"/>
+    </type-modification>
+    -->
+    
+	
+	<!--  Enable all modes, select as needed per-deployment -->
+      
+    <type-modification type="udm.DeployedApplication">
+        <property name="unixUsername" kind="string" transient="true" required="false" category="Personal Credentials"/>
+        <property name="unixPassword" password="true" transient="true" required="false" category="Personal Credentials"/>
+        <property name="windowsUsername" kind="string" transient="true" required="false" category="Personal Credentials"/>
+        <property name="windowsPassword" password="true" transient="true" required="false" category="Personal Credentials"/>
+        <property name="checkConnection" kind="boolean" default="true" required="false" category="Personal Credentials" />
+        <property name="credentialsType" kind="enum" default="CT_USERNAME" enum-class="ext.deployit.community.plugin.personalcredentials.ci.CredentialsType" required="false" category="Personal Credentials"/>
+        <property name="privateKey" kind="string" transient="true" required="false" category="Personal Credentials"/>
+        <property name="passphrase" kind="string" transient="true" password="true" required="false" category="Personal Credentials"/>
+        <property name="scriptPath" kind="string" hidden="true" required="true" category="Personal Credentials" default="xlc/personalcredentials/setcredentials.py"/>
+        <property name="scriptClasspath" kind="string" hidden="true" required="false" category="Personal Credentials" default=""/>
+    </type-modification>
+    
+    
+   
+	
+    <type-modification type="udm.Environment">
+        <property name="overrideHostCredentials" kind="boolean" default="false" category="Personal Credentials"/>
+        <property name="privateKeySelectorConfiguration" kind="ci" referenced-type="xlc.PrivateKeySelectorConfiguration" required="false" category="Personal Credentials"/>
+    </type-modification>
+</synthetic>
