@@ -1,0 +1,58 @@
+import org.apache.tools.ant.filters.*
+
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath "nl.javadude.gradle.plugins:license-gradle-plugin:0.11.0"
+  }
+}
+
+apply plugin: "com.github.hierynomus.license"
+apply plugin: 'eclipse'
+apply plugin: 'java'
+
+version             = '5.0.0'
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+def apiVersion      = '2014.7.4'
+def artifactId      = "xld-personal-credentials-plugin"
+
+processResources {
+    filter(ReplaceTokens, tokens: ['project.version': project.version.toString(),'artifactId':artifactId])
+}
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  maven {
+    credentials {
+      username 'community-plugins'
+      password 'community'
+    }
+    url 'http://nexus.xebialabs.com/nexus/content/repositories/releases'
+  }
+  maven {
+    url "http://nexus.xebialabs.com/nexus/content/repositories/releases"
+    credentials {
+      username nexusUserName
+      password nexusPassword
+    }
+  }
+}
+
+license {
+    header rootProject.file('src/main/license/xebialabs_community.license')
+    strictCheck true
+}
+
+dependencies {
+  compile "com.xebialabs.deployit:udm-plugin-api:$apiVersion"
+  compile "com.xebialabs.deployit:engine-spi:$apiVersion"
+  compile "com.xebialabs.deployit:engine-api:$apiVersion"
+  compile "com.xebialabs.deployit:appserver-core:$apiVersion"
+  compile 'com.xebialabs.deployit.plugins:generic-plugin:$apiVersion'
+  compile 'com.xebialabs.deployit.plugins:was-plugin:4.5.2'
+  compile group: 'com.google.guava', name: 'guava', version: '16.0.1'
+}
