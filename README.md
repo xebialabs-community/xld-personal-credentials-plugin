@@ -12,6 +12,7 @@ The following features are available :
 - specify a private key selector (an alias) and a passphrase (CredentialsType.CT_PRIVATEKEY_SELECTOR) 
 - specify a custom python script to set the credentials on hosts in a custom way (CredentialsType.CT_CUSTOM_SCRIPT)
 - optionally insert a check connection step for each hosts involved in the deployment plan
+- Invoke a control task using personal credentials.
 
 # Requirements #
 
@@ -165,6 +166,26 @@ To enable all features and select the strategy on the fly, use the following def
     </type-modification>
 ```
 
+## Control task - pcShellScript ##
+
+By using the `pcShellScript` delegate, you're able to define a control task method that can have personal credentials as input paramters. The following parameters will override the credentials:
+
+- unixUsername
+- unixPassword
+- windowsUsername
+- windowsPassword
+- privateKey
+- passphrase
+
+An example:
+```
+ <method name="pccheck" description="call pc check" delegate="pcShellScript" script="pc/check">
+        <parameters>
+             <parameter name="unixUsername" kind="string" />
+             <parameter name="unixPassword" kind="string" password="true" />
+         </parameters>
+ </method>
+```
 
 ## Notes ##
 - The 'checkConnection' property allows to generate CheckConnection Step on all the hosts involved in the personal-credentials process.
