@@ -1,4 +1,5 @@
 language: java
+script: ./gradlew compileDocker
 notifications:
   hipchat:
     rooms:
