@@ -29,13 +29,6 @@ repositories {
   maven {
     url 'https://dist.xebialabs.com/public/maven2'
   }
-  maven {
-    url "http://nexus.xebialabs.com/nexus/content/repositories/releases"
-    credentials {
-      username nexusUserName
-      password nexusPassword
-    }
-  }
 }
 
 license {
