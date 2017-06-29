@@ -1,5 +1,5 @@
 language: java
-script: ./gradlew compileDocker
+install: ./gradlew compileDocker
 notifications:
   hipchat:
     rooms:
