@@ -14,6 +14,26 @@ The following features are available :
 - optionally insert a check connection step for each hosts involved in the deployment plan
 - Invoke a control task using personal credentials.
 
+# CI status #
+
+[![Build Status][xld-personal-credentials-plugin-travis-image] ][xld-personal-credentials-plugin-travis-url]
+[![Codacy][xld-personal-credentials-plugin-codacy-image] ][xld-personal-credentials-plugin-codacy-url]
+[![Code Climate][xld-personal-credentials-plugin-code-climate-image] ][xld-personal-credentials-plugin-code-climate-url]
+[![License: MIT][xld-personal-credentials-plugin-license-image] ][xld-personal-credentials-plugin-license-url]
+[![Github All Releases][xld-personal-credentials-plugin-downloads-image] ]()
+
+
+[xld-personal-credentials-plugin-travis-image]: https://travis-ci.org/xebialabs-community/xld-personal-credentials-plugin.svg?branch=master
+[xld-personal-credentials-plugin-travis-url]: https://travis-ci.org/xebialabs-community/xld-personal-credentials-plugin
+[xld-personal-credentials-plugin-codacy-image]: https://api.codacy.com/project/badge/Grade/505bddade3184d1abbb87dc55638987e
+[xld-personal-credentials-plugin-codacy-url]: https://www.codacy.com/app/joris-dewinne/xld-personal-credentials-plugin
+[xld-personal-credentials-plugin-code-climate-image]: https://codeclimate.com/github/xebialabs-community/xld-personal-credentials-plugin/badges/gpa.svg
+[xld-personal-credentials-plugin-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xld-personal-credentials-plugin
+[xld-personal-credentials-plugin-license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
+[xld-personal-credentials-plugin-license-url]: https://opensource.org/licenses/MIT
+[xld-personal-credentials-plugin-downloads-image]: https://img.shields.io/github/downloads/xebialabs-community/xld-personal-credentials-plugin/total.svg
+
+
 # Requirements #
 
 * **XLDeploy requirements**
