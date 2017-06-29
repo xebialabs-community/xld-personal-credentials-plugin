@@ -1,9 +1,10 @@
-.gradle
-.project
 .DS_Store
+.gradle
+.idea
+.project
 .pydevproject
 .settings
 pom.xml
 build
-.idea
+supervisord.*
 xld-personal-credentials-plugin.iml

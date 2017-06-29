@@ -43,6 +43,9 @@ dependencies {
   compile "com.xebialabs.deployit:udm-plugin-api:$apiVersion"
   compile "com.xebialabs.deployit:engine-spi:$apiVersion"
   compile group: 'com.google.guava', name: 'guava', version: '19.0'
+  compile zipTree("$xlDeployHome/plugins/generic-plugin-7.0.0.xldp")
+  compile zipTree("$xlDeployHome/plugins/remoting-plugin-7.0.0.xldp")
+  compile zipTree("$xlDeployHome/plugins/base-plugin-7.0.0.xldp")
 }
 
 license {
