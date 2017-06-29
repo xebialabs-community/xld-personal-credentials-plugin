@@ -1,6 +1,7 @@
 sudo: required
 language: java
-install: ./gradlew compileDocker
+install: true
+script: ./gradlew compileDocker
 services:
  - docker
 notifications:
