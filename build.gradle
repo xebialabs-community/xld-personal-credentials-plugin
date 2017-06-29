@@ -39,13 +39,17 @@ repositories {
   }
 }
 
-license {
-  header rootProject.file('src/main/license/xebialabs_community.license')
-  strictCheck true
-}
-
 dependencies {
   compile "com.xebialabs.deployit:udm-plugin-api:$apiVersion"
   compile "com.xebialabs.deployit:engine-spi:$apiVersion"
   compile group: 'com.google.guava', name: 'guava', version: '19.0'
 }
+
+license {
+  header rootProject.file('License.md')
+  strictCheck false
+  ext.year = Calendar.getInstance().get(Calendar.YEAR)
+  ext.name = 'XEBIALABS'
+}
+
+
