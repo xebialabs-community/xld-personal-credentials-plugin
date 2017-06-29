@@ -20,7 +20,7 @@ xlDocker {
 }
 
 
-version = '5.0.0'
+version = '5.0.1'
 def apiVersion = '2017.4.0'
 def artifactId = "xld-personal-credentials-plugin"
 
